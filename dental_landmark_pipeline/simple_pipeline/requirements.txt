@@ -1,0 +1,20 @@
+# simple_pipeline requirements
+# Tested with Python 3.10, PyTorch 2.1+, CUDA 12.x
+
+# Core deep learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Numerical / data
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Post-processing (landmark clustering)
+scikit-learn>=1.3.0
+
+# Optional: fast Farthest Point Sampling (pre-built wheels, no compilation)
+# Install with: pip install torch-cluster -f https://data.pyg.org/whl/torch-2.1.0+cu121.html
+# torch-cluster>=1.6.3
+
+# Utilities
+tqdm>=4.65.0
