@@ -4,8 +4,8 @@ A self-contained two-stage pipeline for 3D dental landmark detection.
 
 | Stage | Model | Task |
 |-------|-------|------|
-| 1 | TGNet (CGIP) | Global jaw segmentation → per-vertex FDI labels |
-| 2 | 3DTeethLand LandmarkNet | Per-tooth anatomical landmark detection |
+| 1 | Pytorch Point Transformer | Global jaw segmentation → per-vertex FDI labels |
+| 2 | Pytorch Stratified Transformer | Per-tooth anatomical landmark detection |
 
 **Output**: JSON file with per-landmark `(x, y, z)` coordinates, confidence
 scores, and clinical FDI tooth numbers.
