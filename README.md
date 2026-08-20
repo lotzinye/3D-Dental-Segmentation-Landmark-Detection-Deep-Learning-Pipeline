@@ -7,7 +7,7 @@ College of Computing & Data Science, Nanyang Technological University, Singapore
 📄 **Publication (NTU Digital Repository):** https://dr.ntu.edu.sg/entities/publication/9c514406-141c-4615-8594-8c4bc19be852
 
 <p align="center">
-  <img src="docs/figures/architecture.svg" alt="Three-stage pipeline architecture: tooth instance segmentation, coordinate-space bridge, and anatomical landmark detection" width="100%">
+  <img src="docs/figures/flow.png" alt="Three-stage pipeline architecture: tooth instance segmentation, coordinate-space bridge, and anatomical landmark detection" width="100%">
 </p>
 
 ---
