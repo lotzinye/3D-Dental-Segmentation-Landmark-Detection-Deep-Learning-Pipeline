@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 420" width="940" height="420" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="940" height="420" fill="#ffffff"/>
+
+  <text x="470" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">Qualitative Result — reference scan 01F4JV8X_upper</text>
+  <text x="470" y="46" text-anchor="middle" font-size="11.5" fill="#64748b">14 / 14 teeth segmented · 94 landmarks detected in a single inference pass</text>
+
+  <!-- column headers -->
+  <text x="48" y="82" font-size="11" font-weight="700" fill="#475569">MARKER</text>
+  <text x="150" y="82" font-size="11" font-weight="700" fill="#475569">CLASS</text>
+  <text x="330" y="82" font-size="11" font-weight="700" fill="#475569">ANATOMICAL DEFINITION</text>
+  <text x="700" y="82" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">DETECTED</text>
+  <text x="790" y="82" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">EXPECTED</text>
+  <text x="862" y="82" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">VERDICT</text>
+  <line x1="40" y1="90" x2="900" y2="90" stroke="#cbd5e1" stroke-width="1.2"/>
+
+  <!-- Mesial (red) -->
+  <polygon points="62,104 74,116 62,128 50,116" fill="#dc2626"/>
+  <text x="150" y="121" font-size="12" font-weight="600" fill="#0f172a">Mesial</text>
+  <text x="330" y="121" font-size="11" fill="#475569">Proximal contact point facing the dental midline</text>
+  <text x="700" y="121" font-size="12" font-weight="700" fill="#0f172a" text-anchor="middle">14</text>
+  <text x="790" y="121" font-size="12" fill="#475569" text-anchor="middle">14</text>
+  <text x="862" y="121" font-size="12" fill="#059669" text-anchor="middle">✔ exact</text>
+  <line x1="40" y1="136" x2="900" y2="136" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- Distal (green) -->
+  <polygon points="62,150 74,162 62,174 50,162" fill="#16a34a"/>
+  <text x="150" y="167" font-size="12" font-weight="600" fill="#0f172a">Distal</text>
+  <text x="330" y="167" font-size="11" fill="#475569">Proximal contact point facing away from the midline</text>
+  <text x="700" y="167" font-size="12" font-weight="700" fill="#b45309" text-anchor="middle">18</text>
+  <text x="790" y="167" font-size="12" fill="#475569" text-anchor="middle">14</text>
+  <text x="862" y="167" font-size="12" fill="#b45309" text-anchor="middle">⚠ over</text>
+  <line x1="40" y1="182" x2="900" y2="182" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- Cusp (blue) -->
+  <polygon points="62,196 74,208 62,220 50,208" fill="#2563eb"/>
+  <text x="150" y="213" font-size="12" font-weight="600" fill="#0f172a">Cusp</text>
+  <text x="330" y="213" font-size="11" fill="#475569">Buccal/lingual cusp tip, or incisal edge of an anterior tooth</text>
+  <text x="700" y="213" font-size="12" font-weight="700" fill="#0f172a" text-anchor="middle">21</text>
+  <text x="790" y="213" font-size="11" fill="#475569" text-anchor="middle">0–5 / tooth</text>
+  <text x="862" y="213" font-size="12" fill="#059669" text-anchor="middle">✔ plausible</text>
+  <line x1="40" y1="228" x2="900" y2="228" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- InnerPoint (yellow) -->
+  <polygon points="62,242 74,254 62,266 50,254" fill="#eab308"/>
+  <text x="150" y="259" font-size="12" font-weight="600" fill="#0f172a">Inner Point</text>
+  <text x="330" y="259" font-size="11" fill="#475569">Central fossa / marginal ridge, palatal-lingual cervical boundary</text>
+  <text x="700" y="259" font-size="12" font-weight="700" fill="#0f172a" text-anchor="middle">14</text>
+  <text x="790" y="259" font-size="12" fill="#475569" text-anchor="middle">14</text>
+  <text x="862" y="259" font-size="12" fill="#059669" text-anchor="middle">✔ exact</text>
+  <line x1="40" y1="274" x2="900" y2="274" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- OuterPoint (cyan) -->
+  <polygon points="62,288 74,300 62,312 50,300" fill="#06b6d4"/>
+  <text x="150" y="305" font-size="12" font-weight="600" fill="#0f172a">Outer Point</text>
+  <text x="330" y="305" font-size="11" fill="#475569">Most convex point of the buccal or labial surface</text>
+  <text x="700" y="305" font-size="12" font-weight="700" fill="#0f172a" text-anchor="middle">14</text>
+  <text x="790" y="305" font-size="12" fill="#475569" text-anchor="middle">14</text>
+  <text x="862" y="305" font-size="12" fill="#059669" text-anchor="middle">✔ exact</text>
+  <line x1="40" y1="320" x2="900" y2="320" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- FacialPoint (purple) -->
+  <polygon points="62,334 74,346 62,358 50,346" fill="#a855f7"/>
+  <text x="150" y="351" font-size="12" font-weight="600" fill="#0f172a">Facial Point</text>
+  <text x="330" y="351" font-size="11" fill="#475569">Mid-facial reference used in bracket placement planning</text>
+  <text x="700" y="351" font-size="12" font-weight="700" fill="#b45309" text-anchor="middle">13</text>
+  <text x="790" y="351" font-size="12" fill="#475569" text-anchor="middle">14</text>
+  <text x="862" y="351" font-size="12" fill="#b45309" text-anchor="middle">⚠ 1 miss</text>
+  <line x1="40" y1="366" x2="900" y2="366" stroke="#cbd5e1" stroke-width="1.2"/>
+
+  <text x="40" y="390" font-size="10.5" fill="#475569">Marker colours match the exported PLY layers. Both deviations are post-processing artefacts, not network failures:</text>
+  <text x="40" y="406" font-size="10.5" fill="#475569">a per-FDI deduplication step fixes the distal over-count; an adaptive crop radius recovers the posterior facial point.</text>
+</svg>

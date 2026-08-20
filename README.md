@@ -1,10 +1,14 @@
 # Automated Tooth Segmentation & Anatomical Landmark Detection Deep Learning Pipeline
 
 **Project No.** CCDS25-0544 · **Degree** B.Eng. (Computer Engineering) · **AY** 2025/2026
-**Author** Nathaniel Lo Tzin Ye · **Supervisor** Prof. Zheng Jianmin
+**Author** Nathaniel Lo Tzin Ye · **Supervisor** Prof. Zheng Jianmin,
 College of Computing & Data Science, Nanyang Technological University, Singapore
 
 📄 **Publication (NTU Digital Repository):** https://dr.ntu.edu.sg/entities/publication/9c514406-141c-4615-8594-8c4bc19be852
+
+<p align="center">
+  <img src="docs/figures/architecture.svg" alt="Three-stage pipeline architecture: tooth instance segmentation, coordinate-space bridge, and anatomical landmark detection" width="100%">
+</p>
 
 ---
 
@@ -26,6 +30,7 @@ The central technical contribution is a **coordinate-space bridge** that reconci
 independently trained networks — one trained in a Y-range-normalised space (Teeth3DS /
 3DTeethSeg'22), the other in a z-score-normalised space (3DTeethLand / MICCAI 2024) — so that
 they operate as one coherent system rather than two disconnected models.
+
 
 ### Landmark classes
 
@@ -68,6 +73,13 @@ they operate as one coherent system rather than two disconnected models.
 
 ## 3. Results
 
+<p align="center">
+  <img src="docs/figures/results.svg" alt="Segmentation metrics TLA 0.9492, TSA 0.9838, TIR 0.4794, score 0.8042; landmark metrics mAP 0.6220, mAR 0.4831 with per-category breakdown" width="100%">
+</p>
+
+> A detailed walkthrough of every metric, the per-class breakdown, and the failure analysis is in
+> **[docs/RESULTS.md](docs/RESULTS.md)**.
+
 ### 3.1 Quantitative — 240 held-out scans
 
 | Task | Metric | Score |
@@ -94,6 +106,14 @@ Reproduce with:
 python eval_miccai.py --max-scans 240
 ```
 
+> **Reproducibility note.** The figures above are the ones published in the FYP report. The
+> post-processing in `pipeline/landmark_postprocess.py` has since gained per-head thresholds and
+> a two-means Mesial/Distal separation step (see
+> [`FIX_MESIAL_DISTAL_LANDMARKS.md`](dental_landmark_pipeline/FIX_MESIAL_DISTAL_LANDMARKS.md)),
+> so a fresh run will not reproduce the report's numbers exactly. `results/eval_full.json` holds
+> an intermediate run and does **not** match the report — re-run `eval_miccai.py` to regenerate
+> current figures.
+
 ### 3.2 Context against the published challenge leaderboards
 
 | System | Task | Result |
@@ -114,16 +134,20 @@ the pipeline is strongest.
 
 ### 3.3 Qualitative — reference scan `01F4JV8X_upper`
 
+<p align="center">
+  <img src="docs/figures/landmark-classes.svg" alt="Per-class landmark detection counts on the reference scan against expected counts" width="100%">
+</p>
+
 14/14 teeth segmented and colour-coded; **94 landmarks** detected in one pass:
 
 | Class | Detected | Expected | Assessment |
 |---|---|---|---|
-| Mesial | 14 | 14 | ✅ Exact; correctly on midline-facing proximal surfaces |
-| Inner Point | 14 | 14 | ✅ Exact; traces a smooth palatal crown–gingiva curve across the arch |
-| Outer Point | 14 | 14 | ✅ Exact; uniformly spaced along the buccal cervical boundary |
-| Cusp | 21 | ~21 (0/incisor, 1–2/premolar, 2–5/molar) | ✅ Consistent with morphology-dependent expectation |
-| Distal | 18 | 14 | ⚠️ Over-detection — duplicate clusters on teeth with equally-maximal distal points |
-| Facial Point | 13 | 14 | ⚠️ One miss on the posterior-most molar (12 k-point crop truncated its facial surface) |
+| Mesial | 14 | 14 | Exact; correctly on midline-facing proximal surfaces |
+| Inner Point | 14 | 14 | Exact; traces a smooth palatal crown–gingiva curve across the arch |
+| Outer Point | 14 | 14 | Exact; uniformly spaced along the buccal cervical boundary |
+| Cusp | 21 | ~21 (0/incisor, 1–2/premolar, 2–5/molar) | Consistent with morphology-dependent expectation |
+| Distal | 18 | 14 | Over-detection — duplicate clusters on teeth with equally-maximal distal points |
+| Facial Point | 13 | 14 | Miss on the posterior-most molar (12 k-point crop truncated its facial surface) |
 
 Both deviations are **post-processing artefacts, not network failures**: a per-FDI
 deduplication step would fix the distal over-count, and an adaptive crop radius would recover
@@ -612,26 +636,8 @@ on unseen patient scans would establish whether the pipeline's error falls insid
 acceptable inter-annotator variability — the only measure that matters clinically — and would
 supply a structured feedback loop for targeted retraining.
 
----
 
-## 13. References
-
-Key works underpinning this pipeline:
-
-- **[Teeth3DS / 3DTeethSeg'22]** A. Ben-Hamadou et al., *3DTeethSeg'22: 3D Teeth Scan Segmentation and Labeling Challenge*, arXiv:2305.18277, 2023.
-- **[3DTeethLand]** A. Ben-Hamadou et al., *Detecting Dental Landmarks from Intraoral 3D Scans: the 3DTeethLand Challenge*, arXiv:2512.08323, 2025.
-- **[Teeth3DS+]** A. Ben-Hamadou et al., *Teeth3DS+: An Extended Benchmark for Intraoral 3D Scans Analysis*, arXiv:2210.06094.
-- **[Point Transformer]** H. Zhao, L. Jiang, J. Jia, P. H. Torr, V. Koltun, *Point Transformer*, IEEE ICCV 2021, pp. 16259–16268.
-- **[Stratified Transformer]** X. Lai et al., *Stratified Transformer for 3D Point Cloud Segmentation*, IEEE CVPR 2022, pp. 8500–8509.
-- **[PointNet++]** C. R. Qi, L. Yi, H. Su, L. J. Guibas, *PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space*, arXiv:1706.02413, 2017.
-- **[ToothInstanceNet]** N. van Nistelrooij, S. Vinayahalingam, *ToothInstanceNet*, LNCS pp. 229–240, 2025.
-- **[Two-Stage Mesh DL]** T.-H. Wu et al., *Two-Stage Mesh Deep Learning for Automated Tooth Segmentation and Landmark Localization on 3D Intraoral Scans*, IEEE TMI 41(11), 2022.
-
-The full 27-entry bibliography is in the final report.
-
----
-
-## 14. Citation
+## 13. Citation
 
 ```bibtex
 @thesis{lo2026dental,
@@ -648,14 +654,3 @@ The full 27-entry bibliography is in the final report.
 ```
 
 ---
-
-## 15. Acknowledgements
-
-With sincere thanks to **Prof. Zheng Jianmin** (NTU CCDS) for supervising this project, and to
-the organisers of the **3DTeethSeg'22** and **3DTeethLand (MICCAI 2024)** challenges for the
-Teeth3DS and 3DTeethLand benchmarks that made this work possible.
-
-Stage 1 builds on the **TGNet** architecture from the CGIP team's 3DTeethSeg'22 submission;
-Stage 3 builds on the **3DTeethLand LandmarkNet** design. The coordinate-space bridge,
-orchestration, post-processing, evaluation harness, and visualisation layer are original to this
-project.

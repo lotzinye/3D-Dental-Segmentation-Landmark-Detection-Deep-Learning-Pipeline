@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 470" width="940" height="470" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="940" height="470" fill="#ffffff"/>
+
+  <text x="470" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">Evaluation Results — 240 held-out scans</text>
+  <text x="470" y="46" text-anchor="middle" font-size="11.5" fill="#64748b">MICCAI 2022 segmentation protocol (left) · MICCAI 2024 landmark protocol (right)</text>
+
+  <!-- ============ LEFT PANEL: segmentation ============ -->
+  <text x="60" y="82" font-size="13" font-weight="700" fill="#2563eb">Tooth Segmentation</text>
+
+  <!-- axis -->
+  <line x1="150" y1="96" x2="150" y2="238" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="150" y1="238" x2="420" y2="238" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="420" y1="96" x2="420" y2="238" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="150" y="253" text-anchor="middle" font-size="9.5" fill="#94a3b8">0.0</text>
+  <text x="285" y="253" text-anchor="middle" font-size="9.5" fill="#94a3b8">0.5</text>
+  <text x="420" y="253" text-anchor="middle" font-size="9.5" fill="#94a3b8">1.0</text>
+
+  <!-- TLA 0.9492 -->
+  <text x="142" y="115" text-anchor="end" font-size="11" font-weight="600" fill="#0f172a">TLA</text>
+  <rect x="150" y="104" width="270" height="18" rx="3" fill="#f1f5f9"/>
+  <rect x="150" y="104" width="256.3" height="18" rx="3" fill="#2563eb"/>
+  <text x="414" y="117" text-anchor="end" font-size="10.5" font-weight="700" fill="#ffffff">0.9492</text>
+
+  <!-- TSA 0.9838 -->
+  <text x="142" y="147" text-anchor="end" font-size="11" font-weight="600" fill="#0f172a">TSA</text>
+  <rect x="150" y="136" width="270" height="18" rx="3" fill="#f1f5f9"/>
+  <rect x="150" y="136" width="265.6" height="18" rx="3" fill="#1d4ed8"/>
+  <text x="414" y="149" text-anchor="end" font-size="10.5" font-weight="700" fill="#ffffff">0.9838</text>
+
+  <!-- TIR 0.4794 -->
+  <text x="142" y="179" text-anchor="end" font-size="11" font-weight="600" fill="#0f172a">TIR</text>
+  <rect x="150" y="168" width="270" height="18" rx="3" fill="#f1f5f9"/>
+  <rect x="150" y="168" width="129.4" height="18" rx="3" fill="#f59e0b"/>
+  <text x="286" y="181" text-anchor="start" font-size="10.5" font-weight="700" fill="#b45309">0.4794</text>
+
+  <!-- Score 0.8042 -->
+  <text x="142" y="211" text-anchor="end" font-size="11" font-weight="700" fill="#0f172a">Score</text>
+  <rect x="150" y="200" width="270" height="18" rx="3" fill="#f1f5f9"/>
+  <rect x="150" y="200" width="217.1" height="18" rx="3" fill="#0f172a"/>
+  <text x="361" y="213" text-anchor="end" font-size="10.5" font-weight="700" fill="#ffffff">0.8042</text>
+
+  <text x="150" y="286" font-size="10.5" fill="#475569">Boundary quality (TSA) is near-ceiling and exceeds the</text>
+  <text x="150" y="301" font-size="10.5" fill="#475569">2nd-place challenge entry (Chamfers, TSA 0.8886).</text>
+  <text x="150" y="316" font-size="10.5" fill="#b45309">The entire gap sits in TIR — FDI label assignment —</text>
+  <text x="150" y="331" font-size="10.5" fill="#b45309">the metric the landmark stage depends on least.</text>
+
+  <!-- divider -->
+  <line x1="470" y1="70" x2="470" y2="400" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- ============ RIGHT PANEL: landmarks ============ -->
+  <text x="510" y="82" font-size="13" font-weight="700" fill="#059669">Landmark Detection — per category</text>
+
+  <!-- grid -->
+  <line x1="620" y1="96" x2="620" y2="230" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="620" y1="230" x2="890" y2="230" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="755" y1="96" x2="755" y2="230" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="890" y1="96" x2="890" y2="230" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="620" y="245" text-anchor="middle" font-size="9.5" fill="#94a3b8">0.0</text>
+  <text x="755" y="245" text-anchor="middle" font-size="9.5" fill="#94a3b8">0.5</text>
+  <text x="890" y="245" text-anchor="middle" font-size="9.5" fill="#94a3b8">1.0</text>
+
+  <!-- Mesial/Distal AP .6211 AR .4966 -->
+  <text x="612" y="107" text-anchor="end" font-size="10.5" font-weight="600" fill="#0f172a">Mesial / Distal</text>
+  <rect x="620" y="99" width="167.7" height="9" rx="2" fill="#059669"/>
+  <rect x="620" y="110" width="134.1" height="9" rx="2" fill="#6ee7b7"/>
+  <text x="795" y="107" font-size="9.5" fill="#475569">.6211</text>
+  <text x="762" y="118" font-size="9.5" fill="#475569">.4966</text>
+
+  <!-- Cusp -->
+  <text x="612" y="140" text-anchor="end" font-size="10.5" font-weight="600" fill="#0f172a">Cusp</text>
+  <rect x="620" y="132" width="167.8" height="9" rx="2" fill="#059669"/>
+  <rect x="620" y="143" width="134.1" height="9" rx="2" fill="#6ee7b7"/>
+  <text x="795" y="140" font-size="9.5" fill="#475569">.6213</text>
+  <text x="762" y="151" font-size="9.5" fill="#475569">.4965</text>
+
+  <!-- Inner/Outer -->
+  <text x="612" y="173" text-anchor="end" font-size="10.5" font-weight="600" fill="#0f172a">Inner / Outer</text>
+  <rect x="620" y="165" width="171.2" height="9" rx="2" fill="#059669"/>
+  <rect x="620" y="176" width="131.8" height="9" rx="2" fill="#6ee7b7"/>
+  <text x="798" y="173" font-size="9.5" fill="#475569">.6340</text>
+  <text x="759" y="184" font-size="9.5" fill="#475569">.4880</text>
+
+  <!-- Facial -->
+  <text x="612" y="206" text-anchor="end" font-size="10.5" font-weight="600" fill="#0f172a">Facial</text>
+  <rect x="620" y="198" width="162.1" height="9" rx="2" fill="#059669"/>
+  <rect x="620" y="209" width="116.8" height="9" rx="2" fill="#6ee7b7"/>
+  <text x="789" y="206" font-size="9.5" fill="#475569">.6005</text>
+  <text x="744" y="217" font-size="9.5" fill="#475569">.4326</text>
+
+  <!-- legend -->
+  <rect x="620" y="262" width="11" height="9" rx="2" fill="#059669"/>
+  <text x="637" y="271" font-size="10.5" fill="#0f172a">AP</text>
+  <rect x="672" y="262" width="11" height="9" rx="2" fill="#6ee7b7"/>
+  <text x="689" y="271" font-size="10.5" fill="#0f172a">AR</text>
+  <text x="730" y="271" font-size="10.5" font-weight="700" fill="#0f172a">mAP 0.6220 · mAR 0.4831</text>
+
+  <text x="510" y="300" font-size="10.5" fill="#475569">Cusp — the class the 3DTeethLand challenge identified as</text>
+  <text x="510" y="315" font-size="10.5" fill="#475569">hardest, because its count varies per tooth — scores</text>
+  <text x="510" y="330" font-size="10.5" fill="#475569">indistinguishably from the fixed-cardinality classes.</text>
+
+  <!-- ============ BOTTOM: benchmark comparison ============ -->
+  <line x1="60" y1="358" x2="890" y2="358" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="60" y="382" font-size="12" font-weight="700" fill="#0f172a">Context against published challenge leaderboards</text>
+
+  <g font-size="10.5">
+    <text x="60" y="406" fill="#475569">Segmentation</text>
+    <rect x="150" y="398" width="180" height="10" rx="2" fill="#cbd5e1"/>
+    <rect x="150" y="398" width="171.7" height="10" rx="2" fill="#94a3b8"/>
+    <text x="338" y="407" fill="#64748b">CGIP (winner) 0.9539</text>
+    <rect x="150" y="414" width="180" height="10" rx="2" fill="#dbeafe"/>
+    <rect x="150" y="414" width="144.8" height="10" rx="2" fill="#2563eb"/>
+    <text x="338" y="423" font-weight="700" fill="#0f172a">This pipeline 0.8042</text>
+
+    <text x="510" y="406" fill="#475569">Landmarks (mAP)</text>
+    <rect x="620" y="398" width="180" height="10" rx="2" fill="#cbd5e1"/>
+    <rect x="620" y="398" width="141.3" height="10" rx="2" fill="#94a3b8"/>
+    <text x="808" y="407" fill="#64748b">Radboud 0.785</text>
+    <rect x="620" y="414" width="180" height="10" rx="2" fill="#d1fae5"/>
+    <rect x="620" y="414" width="112" height="10" rx="2" fill="#059669"/>
+    <text x="808" y="423" font-weight="700" fill="#0f172a">This 0.6220</text>
+  </g>
+
+  <text x="60" y="450" font-size="10" fill="#94a3b8">Challenge entries were optimised for a single task on the full challenge dataset; this pipeline places landmark detection downstream of segmentation, so Stage-1 error propagates forward.</text>
+</svg>
