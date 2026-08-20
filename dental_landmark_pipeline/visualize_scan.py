@@ -133,6 +133,9 @@ def split_mesial_distal(landmarks):
     Split 'MesialDistal' entries into 'Mesial' / 'Distal' using x-coord.
     Quadrants 1 & 4 (right side, x>0): smaller x = Mesial.
     Quadrants 2 & 3 (left side,  x<0): larger  x = Mesial.
+
+    When only 1 prediction exists for a tooth, both Mesial and Distal are
+    emitted at the same position (single-cluster fallback from the model).
     """
     from collections import defaultdict
     md_by_tooth, other = defaultdict(list), []
@@ -142,8 +145,12 @@ def split_mesial_distal(landmarks):
     resolved = list(other)
     for fdi, group in md_by_tooth.items():
         reverse = (fdi // 10) in (2, 3)
-        for k, lm in enumerate(sorted(group, key=lambda l: l["coord"][0], reverse=reverse)):
-            resolved.append({**lm, "class": "Mesial" if k == 0 else "Distal"})
+        sorted_group = sorted(group, key=lambda l: l["coord"][0], reverse=reverse)
+        if len(sorted_group) == 1:
+            resolved.append({**sorted_group[0], "class": "Mesial"})
+        else:
+            for k, lm in enumerate(sorted_group[:2]):
+                resolved.append({**lm, "class": "Mesial" if k == 0 else "Distal"})
     return resolved
 
 
